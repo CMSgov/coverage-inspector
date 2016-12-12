@@ -1,5 +1,5 @@
-var apiroot = '';
-var apikey = '';
+var apiroot = 'https://marketplace.api.healthcare.gov/api/v1';
+var apikey = 'ACA=hSL5vBVJSa';
 
 function getJSON(path) {
     return $.getJSON(apiroot + path + ((path.indexOf('?') != -1) ? '&' : '?') + apikey);
