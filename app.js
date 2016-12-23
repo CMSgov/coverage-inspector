@@ -1,8 +1,8 @@
-var apiroot = 'https://marketplace-int.api.healthcare.gov/api/v1/';
-var apikey = 'ACA=hSL5vBVJSa';
+var apiroot = 'https://marketplace.api.healthcare.gov/api/v1';
+var keystring  = 'apikey=4f3ee303150110ff194e9b51b2f605d7';
 
 function getJSON(path) {
-    return $.getJSON(apiroot + path + ((path.indexOf('?') != -1) ? '&' : '?') + apikey);
+    return $.getJSON(apiroot + path + ((path.indexOf('?') != -1) ? '&' : '?') + keystring);
 }
 
 function checkProviderCoverage() {
