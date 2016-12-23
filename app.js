@@ -254,6 +254,7 @@ function lookupPlans() {
     var iidrx = /[0-9]{5}/;
     var container = $('.issuer-plans');
     var iid = $('input[name=issuer-id]').val();
+    var year = $('#issuer-id-year').val();
 
     if (!iidrx.test(iid) || iid.match(iidrx)[0] != iid) {
         var fg = container.find('.form-group');
@@ -262,7 +263,7 @@ function lookupPlans() {
         return false;
     }
 
-    var d = getJSON('/issuers/' + iid + '/plan-ids');
+    var d = getJSON('/issuers/' + iid + '/plan-ids?year=' + year);
 
     var res = container.find('.results');
     res.addClass('hidden');
