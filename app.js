@@ -2,10 +2,11 @@ var CURRENT_MARKET_YEAR = '2019'; // TODO: Allow this to be set by the user
 
 var apiroot = 'https://marketplace.api.healthcare.gov/api/v1';
 var keystring  = 'apikey=4f3ee303150110ff194e9b51b2f605d7';
-var yearstring = 'year=' + CURRENT_MARKET_YEAR;
 
-function getJSON(path) {
-    return $.getJSON(apiroot + path + ((path.indexOf('?') != -1) ? '&' : '?') + keystring + '&' + yearstring);
+function getJSON(path, year) {
+    if (!year) year = CURRENT_MARKET_YEAR;
+    var yearString = 'year=' + year;
+    return $.getJSON(apiroot + path + ((path.indexOf('?') != -1) ? '&' : '?') + keystring + '&' + yearString);
 }
 
 function checkProviderCoverage() {
@@ -266,7 +267,7 @@ function lookupPlans() {
         return false;
     }
 
-    var d = getJSON('/issuers/' + iid + '/plan-ids?year=' + year);
+    var d = getJSON('/issuers/' + iid + '/plan-ids', year);
 
     var res = container.find('.results');
     res.addClass('hidden');
