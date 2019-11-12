@@ -1,4 +1,4 @@
-var CURRENT_MARKET_YEAR = '2019'; // TODO: Allow this to be set by the user
+var CURRENT_MARKET_YEAR = '2020'; // TODO: Allow this to be set by the user
 
 var apiroot = 'https://marketplace.api.healthcare.gov/api/v1';
 var keystring  = 'apikey=4f3ee303150110ff194e9b51b2f605d7';
